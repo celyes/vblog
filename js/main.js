@@ -25,11 +25,6 @@ var register = new Vue({
         repass : "",
         errorMessage : "errorComp",
         is_error: false
-    }, 
-    components: {
-        'errorComp': {
-            template: '<div class="alert">Username / email already taken</div>'
-        }
     },
     methods: {
         authRegister: function(e){
