@@ -1,14 +1,15 @@
 <?php 
-require 'config.class.php';
+namespace app;
 class Auth {
     public $message;
     private $conn;
 
     // Connect to database
     public function __construct(){
-        $dbconn = new db();
+        $dbconn = new config();
         $db = $dbconn->dbconnect();
         $this->conn = $db;
+        echo "Connected";
     }
 
     //Register new user

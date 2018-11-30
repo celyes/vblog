@@ -1,15 +1,17 @@
 <?php 
-class DB{
+namespace app;
+
+use PDO;
+
+class Config{
 
     private $host = "localhost";
     private $user = "root";
     private $pass = "";
     private $dbname = "test";
     public $connect;
-
     public function dbconnect(){
         $this->connect = null;
-        
         try{
             $this->connect = new PDO('mysql:host='.$this->host.';charset=utf8; dbname='.$this->dbname, $this->user, $this->pass);
             $this->connect->setAttribute(PDO::ATTR_ERRMODE , PDO::ERRMODE_EXCEPTION);
