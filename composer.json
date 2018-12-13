@@ -10,5 +10,10 @@
         }
     ],
     "minimum-stability": "beta",
-    "require": {}
+    "require": {},
+    "autoload":{
+        "psr-4": {
+            "App\\":"src"
+        }
+    }
 }

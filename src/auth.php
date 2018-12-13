@@ -91,7 +91,6 @@ class Auth {
         session_unset();
         return true;
     }
-	
 }
 
 ?>
