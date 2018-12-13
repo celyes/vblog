@@ -1,36 +1,42 @@
 <?php 
-namespace app;
+
+namespace App;
+
 class Auth {
+    
     public $message;
     private $conn;
 
     // Connect to database
     public function __construct(){
-        $dbconn = new config();
+        $dbconn = new Config;
         $db = $dbconn->dbconnect();
         $this->conn = $db;
-        echo "Connected";
     }
 
     //Register new user
     public function register($user, $pass, $mail){
         try{
-            $stmt = $this->conn->prepare('SELECT user, email FROM users WHERE user=:user OR email=:email');
-            $stmt->execute([
-                ':user'=>$user,
-                ':email'=>$mail
-            ]);
-            if($stmt->rowCount()){
-                echo "Username / email already taken";
-            }else{
-                $options = array('cost' => 11);
-                $pass = password_hash($pass, PASSWORD_DEFAULT, $options);
-                $stmt = $this->conn->prepare('INSERT INTO users(user, pass, email) VALUES (:user, :pass, :email)');
+            if(!empty($mail) && filter_var($mail, FILTER_VALIDATE_EMAIL) !== false){
+                $stmt = $this->conn->prepare('SELECT user, email FROM users WHERE user=:user OR email=:email');
                 $stmt->execute([
-                    ':user' => $user,
-                    ':pass' => $pass,
-                    ':email' => $mail
-                ]);  
+                    ':user'=>$user,
+                    ':email'=>$mail
+                ]);
+                if($stmt->rowCount()){
+                    echo "Username / email already taken";
+                }else{
+                    $options = array('cost' => 11);
+                    $pass = password_hash($pass, PASSWORD_DEFAULT, $options);
+                    $stmt = $this->conn->prepare('INSERT INTO users(user, pass, email) VALUES (:user, :pass, :email)');
+                    $stmt->execute([
+                        ':user' => $user,
+                        ':pass' => $pass,
+                        ':email' => $mail
+                    ]);  
+                }
+            } else{
+                echo "Wrong !! ";
             }
         }catch(PDOException $e){
             die($e->getMessage());
