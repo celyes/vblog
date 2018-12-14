@@ -1,7 +1,9 @@
-![Celyes Logo](http://b.up-00.com/2018/02/151821732343771.png)
+
 
 <p align="center">
-Repository link : [Click here](https://github.com/celyes/vblog)
+    <img src="http://b.up-00.com/2018/02/151821732343771.png">
+    <br> 
+    Repository link : [Click here](https://github.com/celyes/vblog)
 </p>
 <p align="center">
     <img src="https://img.shields.io/badge/version-1.0%20beta-blue.svg">
