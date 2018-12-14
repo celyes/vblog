@@ -1,8 +1,14 @@
 ![Celyes Logo](http://b.up-00.com/2018/02/151821732343771.png)
 
+<p align="center">
 Repository link : [Click here](https://github.com/celyes/vblog)
+</p>
 <p align="center">
     <img src="https://img.shields.io/badge/version-1.0%20beta-blue.svg">
+</p>
+<p align="center">
+    <img src="
+    https://img.shields.io/badge/test-under%20development-red.svg"> 
 </p>
 VBlog Project : Open Source PHP + Vue.js simple blog 
 
